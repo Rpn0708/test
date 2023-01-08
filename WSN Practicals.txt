@@ -1,5 +1,98 @@
 WSN Practicals
 
+--------------------------------------------------------------------------------
+
+Practical 1 : Configuring WEP on a Wireless Router
+
+Components: 2 2960 Switch, 2 1841 Router, 2 PCs
+
+>Connect PC1 and Switch1 using CopperStraightThrough wire in Ethernet mode.
+>Connect Switch1 with Router1 using CopperStraightThrough wire in Ethernet mode.
+>Connect PC2 and Switch2 using CopperStraightThrough wire in Ethernet mode.
+>Connect Switch2 with Router2 using CopperStraightThrough wire in Ethernet mode.
+>Connect Router1 with Router2 using SerialDCE wire in Serial mode.
+
+>PC1>Desktop>IPConfiguration>IPv4>192.168.1.2>DefaultGateway>192.168.1.1
+>PC2>Desktop>IPConfiguration>IPv4>192.168.2.2>DefaultGateway>192.168.2.1
+>Router1>Config>FastEthernet0/0>IPv4>192.168.1.1>On
+>Router2>Config>FastEthernet0/0>IPv4>192.168.2.1>On
+>Router1>Config>Serial0/0/0>IPv4>10.0.0.1>Clock Rate>64000>On
+>Router2>Config>Serial0/0/0>IPv4>10.0.0.2>Clock Rate>64000>On
+>Router1>Config>RIP>192.168.1.0, 10.0.0.0
+>Router2>Config>RIP>192.168.2.0, 10.0.0.0
+
+----------------------------------------------------------------------------------
+
+Practical 2 : Demonstrating Distribution Layer Functions
+
+Components: 4 1841 Routers, 2 2960 switch, 2 PCs
+
+>Connect PC and Switch using CopperStraightThrough wire in Ethernet mode.
+>Connect Switch and Router using CopperStraightThrough wire in Ethernet mode.
+>Connect 2 top and middle Router and Router using CopperCrossOver wire in Ethernet mode.
+>Connect 2 side and side Router and Router using SerialDCE wire in Serial mode.
+
+>PC1>Desktop>IPConfiguration>IP Address 172.16.1.2>Default Gateway>172.16.1.1
+>PC2>Desktop>IPConfiguration>IP Address 192.168.1.2>Default Gateway>198.168.1.1
+>Router1>Config>FastEthernet0/0>IP Address 172.16.1.1>On
+>Router2>Config>FastEthernet0/0>IP Address 192.168.1.1>On
+>Router1>Config>FastEthernet0/1>IP Address 10.0.0.1>On
+>Router3>Config>FastEthernet0/0>IP Address 10.0.0.2>On
+>Router2>Config>FastEthernet0/1>IP Address 20.0.0.1>On
+>Router4>Config>FastEthernet0/0>IP Address 20.0.0.2>On
+
+>Router1>Config>Serial0/0>IP Address 30.0.0.1>Clock rate 64000>On
+>Router2>Config>Serial0/0>IP Address 30.0.0.2>Clock rate 64000>On
+>Router3>Config>Serial0/0>IP Address 40.0.0.1>Clock rate 64000>On
+>Router4>Config>Serial0/0>IP Address 40.0.0.2>Clock rate 64000>On
+>Check successful message sending from one router to another
+
+>Router1>Config>RIP>Add 172.16.0.0, 30.0.0.0, 10.0.0.0
+>Router2>Config>RIP>Add 192.168.1.0, 30.0.0.0, 20.0.0.0
+>Router3>Config>RIP>Add 40.0.0.0, 10.0.0.0
+>Router4>Config>RIP>Add 40.0.0.0, 20.0.0.0
+
+-----------------------------------------------------------------------------------
+
+Practical 3 : WLC Controller
+
+
+Components: 3 LAP-PT Leightweight Access Points, 1 2960 Switch, 1 Server, 1 Laptop, 1 2504 Wireless LAN Controller
+
+>Connect the 3 LAPs with the Switch using CopperStraightThroughWire in Ethernet mode.
+>Connect the Server with the Switch using CopperStraightThroughWire in Ethernet mode.
+>Connect the Wireless LAN Controller with the Switch using CopperStraightThroughWire in GigaEthernet mode.
+>Connect the Wireless LAN Controller with the Laptop using CopperStraightThroughWire in Ethernet mode.
+>Do not connect Switch and Laptop
+
+>LAP>Physical>Connect power adapter
+>WLAN>Config>Management>IPAddress>10.10.10.5>DefaultGateway>10.10.10.1>DNS Server>10.10.10.2
+>Laptop>Desktop>IPConfiguration>IPv4>10.10.10.10>DefaultGateway>10.10.10.1>DNS Server>10.10.10.2
+>Server>Config>FastEthernet>IPAddress>10.10.10.3>On
+>Server>Services>DHCP>DefaultGateway>10.10.10.1>DNS Server>10.10.10.2>Start IP Address> 10.10.10.100>Max users>100>WLC Address>10.10.10.5>Save>on
+>laptop>Desktop>Web Browser>10.10.10.5>admin & Password>IP Address>10.10.10.5>Subnet Mask>255.0.0.0>Default Gateway>10.10.10.1>Next>Network Name>STUDENT>Password>123456>Next>Apply
+>Laptop>Desktop>Web Browser>https://10.10.10.5/>admin & Password>Check all ports are On>WLAN created
+
+>Take a smart phone device
+>Smartdevice>Config>Static>Wireless>SSID>Student>WPA2-PSK>123456>Check that its connected.
+
+------------------------------------------------------------------------------------
+
+Practical 4 : Planning Network-based Firewalls
+
+Components: WRT300N Wireless Router, Server, 3 PCs
+
+>Connect Server and Router using CopperStraightThrough wire in Ethernet mode.
+>In the 3 PCs change from wired to wireless.
+
+>Server>Desktop>IPConfiguration>DHCP
+>PC>Desktop>IPConfiguration>DHCP
+>PC>Desktop>Web Browser>URL 192.168.0.100
+>Server>Desktop>Firewall>Service On>Action Deny>Protocol ICMP>Remote IP 0.0.0.0>Remote WildCard 255.255.255.255
+>Server>Desktop>Firewall>Service On>Action Allow>Protocol IP>Remote IP 0.0.0.0>Remote WildCard 255.255.255.255
+>PC>Desktop>CommandPrompt>ping 192.168.0.100
+>PC>Desktop>Web Browser>URL 192.168.0.100>Do for 3 PCs
+
 ------------------------------------------------------------------------------------
 
 Practical 6 : Creating an Adhoc Network
@@ -17,6 +110,32 @@ Components: 2 WRT300N Wireless Router, 5 PCs
 >PC3>Desktop>PCWireless>Connect>CS>ciscorouter1>Connect
 >PC4>Desktop>PCWireless>Connect>CS>ciscorouter1>Connect
 >PC5>Desktop>PCWireless>Connect>IT>ciscorouter2>Connect
+
+---------------------------------------------------------------------------------
+
+Practical 7 : Configuring Basic AP Settings
+
+Components: 2 Access Points AP-PT, 4 PCs, 2 1841 Routers
+
+>AccessPoint1>Config>Port1>SSID>CS>WPA2_PSK>Ciscopacket1>On
+>AccessPoint2>Config>Port1>SSID>IT>WPA2_PSK>Ciscopacket2>On
+>PC1>Desktop>IPConfiguration>Static>IP Address>192.168.1.2>Default Gateway>192.168.1.1
+>PC2>Desktop>IPConfiguration>Static>IP Address>192.168.1.3>Default Gateway>192.168.1.1
+>PC3>Desktop>IPConfiguration>Static>IP Address>171.16.10.2>Default Gateway>171.16.10.1
+>PC4>Desktop>IPConfiguration>Static>IP Address>171.16.10.3>Default Gateway>171.16.10.1
+>In all PCs change from wired to wireless.
+>Change Name of AccessPoint1 to CS and other to IT
+>PC1>Config>Wireless>SSID>CS>WPA2_PSK>Ciscopacket1
+>PC2>Config>Wireless>SSID>CS>WPA2_PSK>Ciscopacket1
+>PC3>Config>Wireless>SSID>IT>WPA2_PSK>Ciscopacket2
+>PC4>Config>Wireless>SSID>IT>WPA2_PSK>Ciscopacket2
+
+>Connect 2 Routers with the 2 APs using CopperCrossOver wire in Ethernet mode with Port 0.
+>Router1>Config>FastEthernet0/0>IP Address>192.168.1.1>On
+>Router2>Config>FastEthernet0/0>IP Address>171.16.10.1>On
+>Connect both Routers Serially using SerialDCE wire.
+>Router1>Config>Serial0/0>IP Address>20.0.0.1>Clock Rate>64000>On
+>Router2>Config>Serial0/0>IP Address>20.0.0.2>Clock Rate>64000>On
 
 ---------------------------------------------------------------------------------
 Practical 8 : Ethernet Configuration
@@ -43,24 +162,16 @@ PC>Desktop>CommandPrompt>ipconfig>ipconfig /release>ipconfig /renew>ping 208.67.
 
 ------------------------------------------------------------------------------------
 
+Practical 10 : Configure Site-to-Site Wireless Link
 
+Components: 3 2901 Routers, 2 2960 Switches, 2 PCs
 
+>All 3 Routers>Physical>HWIC-2T add port
+>Connect Routers 1 and 2 with Router 3 using SerialDCE wire in Serial mode.
+>Connect Switch1 with Router1 and Switch2 with Router2 using CopperStraightThrough wire in Ethernet mode.
+>Connect PC1 with Switch1 and PC2 with Switch2 using CopperStraightThrough wire in Ethernet mode.
+>Rename Router1 as HQ, Router2 as Branch and Router3 as ISP.
+>Configure Default Router on HQ and Branch and Static Router from ISP
+>Configure VPN Site to Site
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------------
