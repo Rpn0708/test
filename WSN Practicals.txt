@@ -1,0 +1,66 @@
+WSN Practicals
+
+------------------------------------------------------------------------------------
+
+Practical 6 : Creating an Adhoc Network
+
+Components: 2 WRT300N Wireless Router, 5 PCs
+
+>Connect both routers with CopperCrossover wire using Ethernet
+
+>Router1>Wireless>SSID>PC>WirelessSecurity>Mode>WPA2 Personal>Passphrase>ciscorouter1>Save>Administration>RemoteManage>Enabled>Save
+>Router2>Wireless>SSID>IT>WirelessSecurity>Mode>WPA2 Personal>Passphrase>ciscorouter2>Save>Administration>RemoteManage>Enabled>Save
+>Send message from one router to the another
+>All 5 PCs change from wired to wireless.
+>PC1>Desktop>PCWireless>Connect>CS>ciscorouter1>Connect
+>PC2>Desktop>PCWireless>Connect>IT>ciscorouter2>Connect
+>PC3>Desktop>PCWireless>Connect>CS>ciscorouter1>Connect
+>PC4>Desktop>PCWireless>Connect>CS>ciscorouter1>Connect
+>PC5>Desktop>PCWireless>Connect>IT>ciscorouter2>Connect
+
+---------------------------------------------------------------------------------
+Practical 8 : Ethernet Configuration
+
+Components: WRT300N Wireless Router, PC, Laptop, CableModemPT, CloudPT, ServerPT
+
+>Connect laptop in wireless mode
+>Connect Router with PC using copperstraightthrough wire in Ethernet mode
+>Connect Router with Modem in Internet mode
+>Connect Modem with Cloud using Automatically connection wire
+>Connect Cloud with Server using Automatically connection wire
+
+Laptop>Change wired to wireless
+Router>GUI>IP Address> 192.168.0.1
+Desktop>IPConfiguration>DHCP
+Server>IPConfiguration>IPv4>208.67.220.220>DefaultGateway>208.67.220.1
+Router>GUI>DNS>208.67.220.220
+Server>Services>DHCP>On>208.67.220.220>Save
+Server>Services>DNS>On>cisco.com>Add
+Cloud>Config>Ethernet6>Cable
+Cloud>Config>Cable>Add
+Server>Config>DNS>208.67.220.220
+PC>Desktop>CommandPrompt>ipconfig>ipconfig /release>ipconfig /renew>ping 208.67.220.220
+
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
