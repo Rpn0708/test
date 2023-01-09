@@ -1,0 +1,131 @@
+Cloud Practicals
+
+------------------------------------------------------------------------------------
+
+Practical 5 Developing an ASP.NET based web application on the Azure platform
+
+>Login to Microsoft
+>Signup to Microsoft Azure by making 2rs payment. signup.azure.com
+>Go to Azure portal. portal.azure.com
+>We will enter the Quickstart Center.
+>Deploy a virtual machine
+>Open Microsoft Visual Studio
+>Create a new project>ASP.NET Core Web App>Create
+>Open html file index.cshtml
+>Run the code in the browser
+>Build>Publish>Azure>Azure App Service>Create>Finish
+>The applicaion is now published using Azure App Service (Windows)
+
+--------------------------------------------------------------------------------------
+
+Practical 6 Creating an application in Dropbox to store data securely
+
+>Download Dropbox>Login
+>Create Folder
+>Search Dropbox Developer on google>Go to dropbox.com/developers
+>Click on App Console in top right corner.
+>Create an app
+>Permissions>Allow write in all>Connect user login allow all 3
+>Settings>Generate Access Token
+>Go to Google Colab>colab.research.google.com>Create a new notebook
+>Write python SDK code:
+
+!pip install dropbox
+import dropbox
+dropbox_access_token='' //paste the token in the quotes
+dropbox_path="/prac6/aa.txt" //prac6 is the folder name and aa.txt is file name
+computer_path="aa.txt"
+//create a sample text file aa.txt in desktop and upload the file in colab.
+
+client=dropbox_Dropbox(dropbox_access_token)
+print("Successfully connected with Dropbox")
+client.files_upload(open(computer_path,"rb").read(), dropbox_path)
+print("Files successfully uploaded")
+
+>Go to Dropbox website>Refresh>We will see our folder>Click on the folder and we will see our txt file.
+>Go to Appsheet appsheet.com>Login
+>Create>App>Start with existing data>Create app>Dropbox source>Select xls file>
+>Open demo app. File is uploaded successfully.
+
+------------------------------------------------------------------------------------------------------
+
+Practical 7 Installing Cloud Foundry in localhost and exploring CF commands
+
+>Install Cloud Foundry for Windows
+>Open Windows Powershell>Type command cf login>Type login & password
+>cf target -o AA
+>cf create-org AA >Confirm Org AA exists
+
+------------------------------------------------------------------------------------------------------
+
+Practical 8 Cloud application development using IBM Bluemix Cloud
+
+>IBM Cloud cloud.ibm.com>Create an account>Login
+>Go to the catalog cloud.ibm.com/catalog
+>Click Node-RED
+>Specify name of app>Create
+>Click Overview>Customize
+>We will get the app url. We can publish this in IBM cloud.
+
+-------------------------------------------------------------------------------------------------------
+
+Practical 9 Installing and Configuring Dockers in localhost and running multiple images on a Docker
+Platform
+
+>Install Docker Desktop, Minikube, Kubectl
+>Copy kubectl and put it in minikube folder
+>Set the system path>Copy kubectl file path>search Environment Variables in PC control panel>Click Environment Variables>Double-click Admin Path>New>Paste file path>Ok>Double-click System Path>New>Paste file path>Ok
+>Open cmd>type kubectl>check if installed
+>Open cmd>type minikube>check if installed
+>Restart PC
+>Open Docker Desktop
+>Copy sample container line and paste in cmd>Will pull an image. Image is running.
+>Open cmd>type minikube start --vm-driver=docker
+>Minikube container image is running in Docker Desktop.
+
+---------------------------------------------------------------------------------------------------------
+
+Practical 10 Configuring and deploying VMs/Dockers using Chef/Puppet Automation tool
+
+>Install Docker Desktop, Kubectl and Minikube. Follow above Prac9 instructions till type minikube start --vm-driver=docker
+>Search in Google Chef Windows Workstation Setup>Click first link Install Chef Worstation>Windows Install
+>Open CW Powershell>type chef>Check if installed
+>Type tree>Type chef generate cookbook demo
+>Type tree>We will see the tree
+>Type cd demo>cd recipes>ls>See the file in the directory
+>Type cd..>Type cd..>It takes us back twice to Desktop
+>Type chef gem install kitchen-docker
+>Type ls
+>Type nano kitchen.yml
+>Edit kitchen.yml file in Visual Studio>Make necessary changes
+>Open CW Powershell>Type kitchen create>Type cd demo>kitchen create>Type kitchen list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
