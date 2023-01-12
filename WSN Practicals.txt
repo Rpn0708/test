@@ -32,8 +32,8 @@ Components: 4 1841 Routers, 2 2960 switch, 2 PCs
 >Connect 2 top and middle Router and Router using CopperCrossOver wire in Ethernet mode.
 >Connect 2 side and side Router and Router using SerialDCE wire in Serial mode.
 
->PC1>Desktop>IPConfiguration>IP Address 172.16.1.2>Default Gateway>172.16.1.1
->PC2>Desktop>IPConfiguration>IP Address 192.168.1.2>Default Gateway>198.168.1.1
+>PC1>Desktop>IPConfiguration>IPv4 Address 172.16.1.2>Default Gateway>172.16.1.1
+>PC2>Desktop>IPConfiguration>IPv4 Address 198.168.1.2>Default Gateway>192.168.1.1
 >Router1>Config>FastEthernet0/0>IP Address 172.16.1.1>On
 >Router2>Config>FastEthernet0/0>IP Address 192.168.1.1>On
 >Router1>Config>FastEthernet0/1>IP Address 10.0.0.1>On
@@ -57,7 +57,7 @@ Components: 4 1841 Routers, 2 2960 switch, 2 PCs
 Practical 3 : WLC Controller
 
 
-Components: 3 LAP-PT Leightweight Access Points, 1 2960 Switch, 1 Server, 1 Laptop, 1 2504 Wireless LAN Controller
+Components: 3 LAP-PT Leightweight Access Points, 1 2960 Switch, 1 Server, 1 Laptop, 1 2504 WLC Wireless LAN Controller
 
 >Connect the 3 LAPs with the Switch using CopperStraightThroughWire in Ethernet mode.
 >Connect the Server with the Switch using CopperStraightThroughWire in Ethernet mode.
@@ -101,8 +101,8 @@ Components: 2 WRT300N Wireless Router, 5 PCs
 
 >Connect both routers with CopperCrossover wire using Ethernet
 
->Router1>Wireless>SSID>PC>WirelessSecurity>Mode>WPA2 Personal>Passphrase>ciscorouter1>Save>Administration>RemoteManage>Enabled>Save
->Router2>Wireless>SSID>IT>WirelessSecurity>Mode>WPA2 Personal>Passphrase>ciscorouter2>Save>Administration>RemoteManage>Enabled>Save
+>Router1>GUI>Wireless>SSID>CS>WirelessSecurity>Mode>WPA2 Personal>Passphrase>ciscorouter1>Save>Administration>RemoteManage>Enabled>Save
+>Router2>GUI>Wireless>SSID>IT>WirelessSecurity>Mode>WPA2 Personal>Passphrase>ciscorouter2>Save>Administration>RemoteManage>Enabled>Save
 >Send message from one router to the another
 >All 5 PCs change from wired to wireless.
 >PC1>Desktop>PCWireless>Connect>CS>ciscorouter1>Connect
@@ -148,26 +148,26 @@ Components: WRT300N Wireless Router, PC, Laptop, CableModemPT, CloudPT, ServerPT
 >Connect Modem with Cloud using Automatically connection wire
 >Connect Cloud with Server using Automatically connection wire
 
-Laptop>Change wired to wireless
-Router>GUI>IP Address> 192.168.0.1
-Desktop>IPConfiguration>DHCP
-Server>IPConfiguration>IPv4>208.67.220.220>DefaultGateway>208.67.220.1
-Router>GUI>DNS>208.67.220.220
-Server>Services>DHCP>On>208.67.220.220>Save
+Laptop>Change wired to wireless WPC300N
+Router>GUI>Setup>IP Address> 192.168.0.1
+PC>Desktop>IPConfiguration>DHCP
+Server>Desktop>IPConfiguration>IPv4>206.67.220.220>DefaultGateway>206.67.220.1>DNS>206.67.220.220
+Router>GUI>Setup>DNS>206.67.220.220
+Server>Services>DHCP>On>Default Gateway & DNS & Start IP>206.67.220.220>Save
 Server>Services>DNS>On>cisco.com>Add
 Cloud>Config>Ethernet6>Cable
 Cloud>Config>Cable>Add
-Server>Config>DNS>208.67.220.220
-PC>Desktop>CommandPrompt>ipconfig>ipconfig /release>ipconfig /renew>ping 208.67.220.220
+Server>Config>Default Gateway>206.67.220.1>DNS>206.67.220.220
+PC>Desktop>CommandPrompt>ipconfig>ipconfig /release>ipconfig /renew>ping 206.67.220.220
 
 ------------------------------------------------------------------------------------
 
-Practical 10 : Configure Site-to-Site Wireless Link
+Practical 10 : Configure Site-to-Site Wireless Link //Doubt
 
 Components: 3 2901 Routers, 2 2960 Switches, 2 PCs
 
 >All 3 Routers>Physical>HWIC-2T add port
->Connect Routers 1 and 2 with Router 3 using SerialDCE wire in Serial mode.
+>Connect Routers 1 and 2(both sidebyside) with Router 3(top) using SerialDCE wire in Serial mode.
 >Connect Switch1 with Router1 and Switch2 with Router2 using CopperStraightThrough wire in Ethernet mode.
 >Connect PC1 with Switch1 and PC2 with Switch2 using CopperStraightThrough wire in Ethernet mode.
 >Rename Router1 as HQ, Router2 as Branch and Router3 as ISP.
@@ -175,3 +175,6 @@ Components: 3 2901 Routers, 2 2960 Switches, 2 PCs
 >Configure VPN Site to Site
 
 --------------------------------------------------------------------------------------
+
+
+
