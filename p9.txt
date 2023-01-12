@@ -1,0 +1,124 @@
+Practical 9 : Configure Radio Interfaces through the GUI
+
+
+ISP
+---------------------------------------------------
+
+hostname ISP
+
+int s0/0/0
+ip address 10.10.10.2 255.255.255.0
+no  shutdown
+
+int s0/0/1
+ip address 11.11.11.2 255.255.255.0
+no shutdown
+
+exit
+
+ip route 172.16.1.0 255.255.255.0 10.10.10.1
+ip route 192.168.10.0 255.255.255.0 11.11.11.1
+
+
+
+
+
+
+
+HQ :-------------
+hostname HQ
+int f0/0
+
+ip address 172.16.1.1 255.255.255.0
+no shutdown
+
+int s0/0/0
+ip address 10.10.10.1 255.255.255.0
+no  shutdown
+
+exit
+
+ip route 0.0.0.0 0.0.0.0 10.10.10.2
+
+crypto isakmp enable
+crypto isakmp policy 20
+authentication pre-share
+encryption 3des
+hash md5
+group 1
+lifetime 3600
+exit
+
+crypto isakmp key cisco123 address 11.11.11.1
+
+crypto ipsec transform-set myset esp-3des esp-md5-hmac
+
+access-list 100 permit ip 172.16.1.0 0.0.0.255 192.168.10.0 0.0.0.255
+
+
+
+crypto map mymap 20 ipsec-isakmp
+set peer 11.11.11.1
+set transform-set myset
+match address 100
+exit
+
+int s0/0/0
+crypto map mymap
+
+exit
+exit
+show crypto isakmp sa
+show crypto ipsec sa
+
+
+
+
+---------------------------------------------------------------------
+
+BRANCH : _______
+hostname Branch
+int f0/0
+
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+
+int s0/0/0
+ip address 11.11.11.1 255.255.255.0
+no  shutdown
+
+exit
+
+ip route 0.0.0.0 0.0.0.0 11.11.11.2
+
+crypto isakmp enable
+crypto isakmp policy 20
+authentication pre-share
+encryption 3des
+hash md5
+group 1
+lifetime 3600
+exit
+
+crypto isakmp key cisco123 address 10.10.10.1
+
+crypto ipsec transform-set myset esp-3des esp-md5-hmac
+
+access-list 100 permit ip 192.168.10.0 0.0.0.255 172.16.1.0 0.0.0.255
+
+
+
+
+crypto map mymap 20 ipsec-isakmp
+set peer 10.10.10.1
+set transform-set myset
+match address 100
+exit
+
+int s0/0/0
+crypto map mymap
+
+
+
+
+
