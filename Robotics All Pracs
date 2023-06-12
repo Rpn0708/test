@@ -34,8 +34,12 @@ Aim: Write a script to follow a predetermined path.
 Components: Raspberry pi Board3, L293D, Simple DC Motor, Button
 
 ---Readymade not available---
-
 (CODE - Create firmware - Raspberry Pi)
+
+Raspberry Pi, Active DC motor, Active L293D
+Source Code>Right click RPI3(U1)>Add Peripheral>Category>Breakout Peripherals>Momentary Action Push button
+
+L293D Connection: Pin 3 to Motor top pin, Pin 6 to Motor bottom pin, Pin 8 & 16 connect together with Power VCC, Pin GND to Ground, Pin 2 to GPIO 4, Pin 7 to GPIO 17
 
 Source Code:
 
@@ -108,6 +112,9 @@ Components: Ardinuo, Button, Zumo robot, Proteus 8.13 simulator
 Proteus>Open Sample>Zumo Line Follower
 
 (FLOWCHART - Create flowchart - Arduino UNO)
+
+Arduino Uno, Zumo Robot
+Visual Designer>Right click Arduino Uno(U1)>Add Peripheral>Category>Motor Control>Arduino Zumo Robot
 
 Source Code:
 
@@ -196,6 +203,8 @@ Proteus>Open Sample>Raspberry Pi TriColour LED
 
 (CODE - Create firmware - Raspberry Pi)
 
+Source Code>Right click RPI3(U1)>Add Peripheral>Category>Breakout Peripherals>RGB Common Anode LED
+
 Source code in python:
 
 from goto import with_gotofrom
@@ -265,6 +274,9 @@ Components: Arduino uno, Zumo robot
 Proteus>Open Sample> Virtual turtle - Follow and Avoid
 
 (FLOWCHART - Create flowchart - Arduino UNO)
+
+Arduino Uno, Zumo Robot
+Visual Designer>Right click Arduino Uno(U1)>Add Peripheral>Category>Motor Control>Arduino Zumo Robot
 
 Source code:
 
@@ -429,8 +441,13 @@ drive smart colour and face tracking behaviours.
 
 Components: Proteus Simulator 8.9 and above, Lcd TFT, Button, Raspberry pi camera
 
+ILI9341 320x240 Graphical TFT
+Source Code>Right click RPI3(U1)>Add Peripheral>Category>Breakout Peripherals>Momentary Action Push button
+Source Code>Right click RPI3(U1)>Add Peripheral>Category>Camera>Raspberry pi camera module
+
 
 Proteus>Open Sample>TFT Display with Camera
 
 (FLOWCHART - Create flowchart - Raspberry Pi)
+
 
